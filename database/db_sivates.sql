@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 28, 2022 at 06:41 PM
+-- Generation Time: Aug 31, 2022 at 08:17 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -48,8 +48,8 @@ CREATE TABLE `data_iva` (
 --
 
 CREATE TABLE `data_medis` (
-  `id_catatan_medis` int(11) NOT NULL,
-  `id_pasien` int(11) NOT NULL,
+  `id_data_medis` int(11) NOT NULL,
+  `pasien_id` int(11) NOT NULL,
   `tes01` int(1) NOT NULL,
   `tes02` int(1) NOT NULL,
   `tes03` int(1) NOT NULL,
@@ -72,8 +72,34 @@ CREATE TABLE `data_medis` (
   `tes19` int(1) NOT NULL,
   `tes20` int(1) NOT NULL,
   `tes21` int(1) NOT NULL,
-  `tes22` int(1) NOT NULL
+  `tes22` int(1) NOT NULL,
+  `tes23` int(1) NOT NULL,
+  `tes24` int(1) NOT NULL,
+  `tes25` int(1) NOT NULL,
+  `ket_tes25` varchar(255) NOT NULL,
+  `tes26` int(1) NOT NULL,
+  `ket_tes26` varchar(255) NOT NULL,
+  `tes27` int(1) NOT NULL,
+  `ket_tes27` varchar(225) NOT NULL,
+  `tes28` int(1) NOT NULL,
+  `ket_tes28` varchar(255) NOT NULL,
+  `tes29` int(1) NOT NULL,
+  `ket_tes29` varchar(255) NOT NULL,
+  `tes30` int(1) NOT NULL,
+  `ket_tes30` varchar(255) NOT NULL,
+  `tes31` int(11) NOT NULL,
+  `tes32` int(11) NOT NULL,
+  `ket_tes32` varchar(255) NOT NULL,
+  `tes33` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `data_medis`
+--
+
+INSERT INTO `data_medis` (`id_data_medis`, `pasien_id`, `tes01`, `tes02`, `tes03`, `tes04`, `tes05`, `tes06`, `tes07`, `tes08`, `tes09`, `tes10`, `tes11`, `tes12`, `ket_tes12`, `tes13`, `tes14`, `tes15`, `tes16`, `tes17`, `tes18`, `tes19`, `tes20`, `tes21`, `tes22`, `tes23`, `tes24`, `tes25`, `ket_tes25`, `tes26`, `ket_tes26`, `tes27`, `ket_tes27`, `tes28`, `ket_tes28`, `tes29`, `ket_tes29`, `tes30`, `ket_tes30`, `tes31`, `tes32`, `ket_tes32`, `tes33`) VALUES
+(1, 19, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 'Kangker Vagina', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, '25 x 25', 2, '', 4, '', 1, 'warna merah', 1, 'bentuk aneh', 1, 'bentuk lonjong', 2, 7, 'Bunuh diri aja', 2),
+(4, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, '', 1, '0', 0, '0', 0, '', 0, '', 0, '', 1, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -100,7 +126,7 @@ CREATE TABLE `data_objektif` (
 --
 
 INSERT INTO `data_objektif` (`id_data_objektif`, `pasien_id`, `tekanan_darah`, `tinggi_badan`, `berat_badan`, `inspeksi_vulva`, `inspeksi_vagina`, `warna`, `keputihan`, `konsistensi`, `bau`) VALUES
-(1, 19, 200, 165, 65, 0, 0, 'Merah', 0, 'asd', 0),
+(1, 19, 200, 155, 65, 0, 0, 'Merah', 0, 'asd', 0),
 (2, 18, 125, 145, 35, 1, 1, 'Merah', 0, 'Cair', 1);
 
 -- --------------------------------------------------------
@@ -223,7 +249,7 @@ ALTER TABLE `data_iva`
 -- Indexes for table `data_medis`
 --
 ALTER TABLE `data_medis`
-  ADD PRIMARY KEY (`id_catatan_medis`);
+  ADD PRIMARY KEY (`id_data_medis`);
 
 --
 -- Indexes for table `data_objektif`
@@ -269,7 +295,7 @@ ALTER TABLE `data_iva`
 -- AUTO_INCREMENT for table `data_medis`
 --
 ALTER TABLE `data_medis`
-  MODIFY `id_catatan_medis` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_data_medis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `data_objektif`

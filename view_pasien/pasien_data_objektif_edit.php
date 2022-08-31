@@ -39,7 +39,7 @@ if (isset($_POST["pasien_data_objektif_edit"])) {
                         </p>
                     </div>
                     <div class="col">
-                        <a class="btn btn-primary float-right" href="pasien.php">Kembali</a>
+                        <a class="btn btn-primary float-right" href="pasien_data_objektif.php?id_pasien=<?= $id_pasien ?>">Kembali</a>
                     </div>
                 </div>
 

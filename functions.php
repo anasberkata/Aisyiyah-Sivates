@@ -218,6 +218,7 @@ function pasien_delete($id)
     return mysqli_affected_rows($conn);
 }
 
+// DATA OBJEKTIF
 function pasien_data_objektif_add($data)
 {
     global $conn;
@@ -278,7 +279,158 @@ function pasien_data_objektif_edit($data)
     return mysqli_affected_rows($conn);
 }
 
+// DATA MEDIS
+function pasien_data_medis_add($data)
+{
+    global $conn;
 
+    $id_pasien = $data["id_pasien"];
+    $tes01 = $data["tes01"];
+    $tes02 = $data["tes02"];
+    $tes03 = $data["tes03"];
+    $tes04 = $data["tes04"];
+    $tes05 = $data["tes05"];
+    $tes06 = $data["tes06"];
+    $tes07 = $data["tes07"];
+    $tes08 = $data["tes08"];
+    $tes09 = $data["tes09"];
+    $tes10 = $data["tes10"];
+    $tes11 = $data["tes11"];
+    $tes12 = $data["tes12"];
+    $ket_tes12 = $data["ket_tes12"];
+    $tes13 = $data["tes13"];
+    $tes14 = $data["tes14"];
+    $tes15 = $data["tes15"];
+    $tes16 = $data["tes16"];
+    $tes17 = $data["tes17"];
+    $tes18 = $data["tes18"];
+    $tes19 = $data["tes19"];
+    $tes20 = $data["tes20"];
+    $tes21 = $data["tes21"];
+    $tes22 = $data["tes22"];
+    $tes23 = $data["tes23"];
+    $tes24 = $data["tes24"];
+    $tes25 = $data["tes25"];
+    $ket_tes25 = $data["ket_tes25"];
+    $tes26 = $data["tes26"];
+    $ket_tes26 = 0;
+    $tes27 = $data["tes27"];
+    $ket_tes27 = 0;
+    $tes28 = $data["tes28"];
+    $ket_tes28 = $data["ket_tes28"];
+    $tes29 = $data["tes29"];
+    $ket_tes29 = $data["ket_tes29"];
+    $tes30 = $data["tes30"];
+    $ket_tes30 = $data["ket_tes30"];
+    $tes31 = $data["tes31"];
+    $tes32 = $data["tes32"];
+    $ket_tes32 = $data["ket_tes32"];
+    $tes33 = $data["tes33"];
+
+    $query = "INSERT INTO data_medis
+				VALUES
+			(NULL, '$id_pasien', '$tes01', '$tes02', '$tes03', '$tes04', '$tes05', '$tes06', '$tes07', '$tes08', '$tes09', '$tes10', '$tes11', '$tes12', '$ket_tes12', '$tes13', '$tes14', '$tes15', '$tes16', '$tes17', '$tes18', '$tes19', '$tes20', '$tes21', '$tes22', '$tes23', '$tes24', '$tes25', '$ket_tes25', '$tes26', '$ket_tes26', '$tes27', '$ket_tes27', '$tes28', '$ket_tes28', '$tes29', '$ket_tes29', '$tes30', '$ket_tes30', '$tes31', '$tes32', '$ket_tes32', '$tes33')
+			";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+function pasien_data_medis_edit($data)
+{
+    global $conn;
+
+    $id_data_medis = $data["id_data_medis"];
+    $id_pasien = $data["id_pasien"];
+    $tes01 = $data["tes01"];
+    $tes02 = $data["tes02"];
+    $tes03 = $data["tes03"];
+    $tes04 = $data["tes04"];
+    $tes05 = $data["tes05"];
+    $tes06 = $data["tes06"];
+    $tes07 = $data["tes07"];
+    $tes08 = $data["tes08"];
+    $tes09 = $data["tes09"];
+    $tes10 = $data["tes10"];
+    $tes11 = $data["tes11"];
+    $tes12 = $data["tes12"];
+    $ket_tes12 = $data["ket_tes12"];
+    $tes13 = $data["tes13"];
+    $tes14 = $data["tes14"];
+    $tes15 = $data["tes15"];
+    $tes16 = $data["tes16"];
+    $tes17 = $data["tes17"];
+    $tes18 = $data["tes18"];
+    $tes19 = $data["tes19"];
+    $tes20 = $data["tes20"];
+    $tes21 = $data["tes21"];
+    $tes22 = $data["tes22"];
+    $tes23 = $data["tes23"];
+    $tes24 = $data["tes24"];
+    $tes25 = $data["tes25"];
+    $ket_tes25 = $data["ket_tes25"];
+    $tes26 = $data["tes26"];
+    $tes27 = $data["tes27"];
+    $tes28 = $data["tes28"];
+    $ket_tes28 = $data["ket_tes28"];
+    $tes29 = $data["tes29"];
+    $ket_tes29 = $data["ket_tes29"];
+    $tes30 = $data["tes30"];
+    $ket_tes30 = $data["ket_tes30"];
+    $tes31 = $data["tes31"];
+    $tes32 = $data["tes32"];
+    $ket_tes32 = $data["ket_tes32"];
+    $tes33 = $data["tes33"];
+
+    $query = "UPDATE data_medis SET
+			tes01 = '$tes01',
+			tes02 = '$tes02',
+			tes03 = '$tes03',
+			tes04 = '$tes04',
+			tes05 = '$tes05',
+			tes06 = '$tes06',
+			tes07 = '$tes07',
+			tes08 = '$tes08',
+			tes09 = '$tes09',
+			tes10 = '$tes10',
+			tes11 = '$tes11',
+			tes12 = '$tes12',
+			ket_tes12 = '$ket_tes12',
+			tes13 = '$tes13',
+			tes14 = '$tes14',
+			tes15 = '$tes15',
+			tes16 = '$tes16',
+			tes17 = '$tes17',
+			tes18 = '$tes18',
+			tes19 = '$tes19',
+			tes20 = '$tes20',
+			tes21 = '$tes21',
+			tes22 = '$tes22',
+			tes23 = '$tes23',
+			tes24 = '$tes24',
+			tes25 = '$tes25',
+			ket_tes25 = '$ket_tes25',
+			tes26 = '$tes26',
+			tes27 = '$tes27',
+			tes28 = '$tes28',
+			ket_tes28 = '$ket_tes28',
+			tes29 = '$tes29',
+			ket_tes29 = '$ket_tes29',
+			tes30 = '$tes30',
+			ket_tes30 = '$ket_tes30',
+			tes31 = '$tes31',
+			tes32 = '$tes32',
+			ket_tes32 = '$ket_tes32',
+			tes33 = '$tes33'
+
+            WHERE id_data_medis = $id_data_medis
+			";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
 
 
 

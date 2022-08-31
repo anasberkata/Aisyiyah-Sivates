@@ -36,7 +36,7 @@ $pasien = query("SELECT * FROM data_pasien WHERE id_pasien = $id")[0];
                 <?php if (!$data_objektif) : ?>
                     <div class="text-center">
                         <p class="badge badge-warning mx-auto">
-                            <a class="btn btn-info float-right" href="pasien_data_objektif_add.php?id_pasien=<?= $id; ?>">Buat Data Objektif</a>
+                            <a class="btn btn-info float-right" href="pasien_data_objektif_add.php?id_pasien=<?= $id; ?>">Input Data Anamnesis</a>
                         </p>
 
                     </div>
