@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 31, 2022 at 08:17 PM
+-- Generation Time: Sep 01, 2022 at 05:12 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -213,7 +213,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`, `role_id`, `image`, `date_created`, `is_active`) VALUES
 (1, 'Admin Sivates', 'admin@gmail.com', 'admin', 'admin', 1, 'default.jpg', '2022-08-19', 1),
-(2, 'Ai Mariam, S.Kom', 'aimariam@gmail.com', 'aimariam', '1234567890', 1, 'default.jpg', '2022-08-19', 1),
+(2, 'Ai Mariam, S.Kom', 'aimariam@gmail.com', 'aimariam', '1234567890', 2, 'default.jpg', '2022-08-19', 1),
 (4, 'Eka Anas Jatnika', 'ideanasdesain@gmail.com', 'ekaanas', 'Dean114119', 1, 'default.jpg', '2022-08-21', 1);
 
 -- --------------------------------------------------------
@@ -233,7 +233,8 @@ CREATE TABLE `user_role` (
 
 INSERT INTO `user_role` (`id_role`, `role`) VALUES
 (1, 'Admin'),
-(2, 'Petugas');
+(2, 'Petugas'),
+(3, 'Wakil');
 
 --
 -- Indexes for dumped tables
@@ -325,7 +326,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

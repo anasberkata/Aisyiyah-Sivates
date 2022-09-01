@@ -19,9 +19,12 @@ $users = query("SELECT * FROM users
                             Daftar pengguna yang bisa login
                         </p>
                     </div>
-                    <div class="col">
-                        <a class="btn btn-primary float-right" href="user_add.php">Tambah</a>
-                    </div>
+
+                    <?php if ($my_profile["role_id"] == 1) : ?>
+                        <div class="col">
+                            <a class="btn btn-primary float-right" href="user_add.php">Tambah</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover">
@@ -32,7 +35,9 @@ $users = query("SELECT * FROM users
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Role</th>
-                                <th>Aksi</th>
+                                <?php if ($my_profile["role_id"] == 1) : ?>
+                                    <th>Aksi</th>
+                                <?php endif; ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,10 +49,13 @@ $users = query("SELECT * FROM users
                                     <td><?= $u["username"]; ?></td>
                                     <td><?= $u["email"]; ?></td>
                                     <td><?= $u["role"]; ?></td>
-                                    <td>
-                                        <a class="badge badge-info" href="user_edit.php?id_user=<?= $u['id_user'] ?>">edit</a>
-                                        <a class="badge badge-danger" href="user_delete.php?id_user=<?= $u['id_user'] ?>" onclick="return confirm('Yakin ingin menghapus pengguna : <?= $u['nama'] ?>?');">hapus</a>
-                                    </td>
+
+                                    <?php if ($my_profile["role_id"] == 1) : ?>
+                                        <td>
+                                            <a class="badge badge-info" href="user_edit.php?id_user=<?= $u['id_user'] ?>">edit</a>
+                                            <a class="badge badge-danger" href="user_delete.php?id_user=<?= $u['id_user'] ?>" onclick="return confirm('Yakin ingin menghapus pengguna : <?= $u['nama'] ?>?');">hapus</a>
+                                        </td>
+                                    <?php endif; ?>
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach; ?>

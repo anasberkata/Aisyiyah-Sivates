@@ -18,9 +18,13 @@ $pasien = query("SELECT * FROM data_pasien WHERE id_pasien = $id")[0];
                             Detail data pasien
                         </p>
                     </div>
-                    <div class="col-8 col-lg-6 mb-3 justify-content-center">
-                        <a class="btn btn-info float-right" href="pasien_edit.php?id_pasien=<?= $pasien["id_pasien"]; ?>">Edit</a>
-                        <a class="btn btn-primary float-right mx-2" href="pasien.php">Kembali</a>
+                    <div class="col-8 col-lg-6 mb-3">
+                        <div class="btn-group float-right" role="group">
+                            <a class="btn btn-primary float-right" href="pasien.php">Kembali</a>
+                            <?php if ($my_profile["role_id"] == 1) : ?>
+                                <a class="btn btn-info float-right" href="pasien_edit.php?id_pasien=<?= $pasien["id_pasien"]; ?>">Edit</a>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
 

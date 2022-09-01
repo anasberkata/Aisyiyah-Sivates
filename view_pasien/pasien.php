@@ -17,9 +17,11 @@ $pasien = query("SELECT * FROM data_pasien ORDER BY tanggal_pendaftaran DESC, id
                             Daftar Pasien
                         </p>
                     </div>
-                    <div class="col">
-                        <a class="btn btn-primary float-right" href="pasien_add.php">Tambah Pasien</a>
-                    </div>
+                    <?php if ($my_profile["role_id"] == 1) : ?>
+                        <div class="col">
+                            <a class="btn btn-primary float-right" href="pasien_add.php">Tambah Pasien</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover">
@@ -44,8 +46,10 @@ $pasien = query("SELECT * FROM data_pasien ORDER BY tanggal_pendaftaran DESC, id
                                         <a class="badge badge-warning" href="pasien_detail.php?id_pasien=<?= $p['id_pasien'] ?>">Detail</a>
                                         <a class="badge badge-dark" href="pasien_data_objektif.php?id_pasien=<?= $p['id_pasien'] ?>">Data Anamnesis</a>
                                         <a class="badge badge-success" href="pasien_data_medis.php?id_pasien=<?= $p['id_pasien'] ?>">Data Medis</a>
-                                        <a class="badge badge-info" href="pasien_edit.php?id_pasien=<?= $p['id_pasien'] ?>"><i class="ti-pencil-alt text-white"></i></a>
-                                        <a class="badge badge-danger" href="pasien_delete.php?id_pasien=<?= $p['id_pasien'] ?>" onclick="return confirm('Yakin ingin menghapus pasien : <?= $p['nama'] ?>?');"><i class="ti-trash text-white"></i></a>
+                                        <?php if ($my_profile["role_id"] == 1) : ?>
+                                            <a class="badge badge-info" href="pasien_edit.php?id_pasien=<?= $p['id_pasien'] ?>"><i class="ti-pencil-alt text-white"></i></a>
+                                            <a class="badge badge-danger" href="pasien_delete.php?id_pasien=<?= $p['id_pasien'] ?>" onclick="return confirm('Yakin ingin menghapus pasien : <?= $p['nama'] ?>?');"><i class="ti-trash text-white"></i></a>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                                 <?php $i++; ?>

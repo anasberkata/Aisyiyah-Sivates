@@ -23,13 +23,17 @@ $pasien = query("SELECT * FROM data_pasien WHERE id_pasien = $id")[0];
                             Detail Data Medis Pasien
                         </p>
                     </div>
-                    <div class="col-8 col-lg-6 mb-3 justify-content-center">
-                        <?php if (!$data_medis) : ?>
-                        <?php else : ?>
-                            <a class="btn btn-info float-right" href="pasien_data_medis_edit.php?id_data_medis=<?= $data_medis["id_data_medis"]; ?>">Edit</a>
-                        <?php endif ?>
+                    <div class="col-8 col-lg-6 mb-3">
+                        <div class="btn-group float-right" role="group">
+                            <a class="btn btn-primary float-right" href="pasien.php">Kembali</a>
 
-                        <a class="btn btn-primary float-right mx-2" href="pasien.php">Kembali</a>
+                            <?php if ($my_profile["role_id"] == 1) : ?>
+                                <?php if (!$data_medis) : ?>
+                                <?php else : ?>
+                                    <a class="btn btn-info float-right" href="pasien_data_medis_edit.php?id_data_medis=<?= $data_medis["id_data_medis"]; ?>">Edit</a>
+                                <?php endif ?>
+                            <?php endif ?>
+                        </div>
                     </div>
                 </div>
 
@@ -593,6 +597,10 @@ $pasien = query("SELECT * FROM data_pasien WHERE id_pasien = $id")[0];
                             </div>
                         </div>
                     </ul>
+
+                    <div class="text-center">
+                        <a class="btn btn-success mt-3" href="hasil_iva_tes_pdf.php?id_pasien=<?= $id; ?>" target="blank"><i class="ti-printer menu-icon"></i> Print</a>
+                    </div>
                 <?php endif ?>
             </div>
         </div>

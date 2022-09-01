@@ -23,13 +23,17 @@ $pasien = query("SELECT * FROM data_pasien WHERE id_pasien = $id")[0];
                             Detail Data Anamnesis Pasien
                         </p>
                     </div>
-                    <div class="col-8 col-lg-6 mb-3 justify-content-center">
-                        <?php if (!$data_objektif) : ?>
-                        <?php else : ?>
-                            <a class="btn btn-info float-right" href="pasien_data_objektif_edit.php?id_data_objektif=<?= $data_objektif["id_data_objektif"]; ?>">Edit</a>
-                        <?php endif ?>
+                    <div class="col-8 col-lg-6 mb-3">
+                        <div class="btn-group float-right" role="group">
+                            <a class="btn btn-primary float-right" href="pasien.php">Kembali</a>
 
-                        <a class="btn btn-primary float-right mx-2" href="pasien.php">Kembali</a>
+                            <?php if ($my_profile["role_id"] == 1) : ?>
+                                <?php if (!$data_objektif) : ?>
+                                <?php else : ?>
+                                    <a class="btn btn-info float-right" href="pasien_data_objektif_edit.php?id_data_objektif=<?= $data_objektif["id_data_objektif"]; ?>">Edit</a>
+                                <?php endif ?>
+                            <?php endif ?>
+                        </div>
                     </div>
                 </div>
 

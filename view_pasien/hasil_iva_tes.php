@@ -17,9 +17,6 @@ $pasien = query("SELECT * FROM data_pasien ORDER BY tanggal_pendaftaran DESC, id
                             Daftar Pasien
                         </p>
                     </div>
-                    <div class="col">
-                        <a class="btn btn-primary float-right" href="pasien_add.php">Tambah Pasien</a>
-                    </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover">
