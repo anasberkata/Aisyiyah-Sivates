@@ -24,6 +24,7 @@ $pasien = query("SELECT * FROM data_pasien WHERE id_pasien = $id")[0];
                         </p>
                     </div>
                     <div class="col-8 col-lg-6 mb-3 justify-content-center">
+                        <a class="btn btn-success float-right mx-2" href="hasil_iva_tes_pdf.php?id_pasien=<?= $id; ?>" target="blank">Print Hasil IVA Tes</a>
                         <a class="btn btn-primary float-right mx-2" href="hasil_iva_tes.php">Kembali</a>
                     </div>
                 </div>
