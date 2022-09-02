@@ -27,7 +27,7 @@ $users = query("SELECT * FROM users
                     <?php endif; ?>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover data">
                         <thead>
                             <tr>
                                 <th>No. </th>
@@ -67,9 +67,6 @@ $users = query("SELECT * FROM users
         </div>
     </div>
 </div>
-
-
-
 
 <?php
 include "../templates/footer.php";

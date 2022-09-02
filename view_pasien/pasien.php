@@ -3,7 +3,12 @@ include "../templates/header.php";
 include "../templates/topbar.php";
 include "../templates/aside.php";
 
-$pasien = query("SELECT * FROM data_pasien ORDER BY tanggal_pendaftaran DESC, id_pasien DESC");
+if (!isset($_POST["search"])) {
+    $pasien = query("SELECT * FROM data_pasien ORDER BY tanggal_pendaftaran DESC, id_pasien DESC");
+} else {
+    $nama = $_POST["nama"];
+    $pasien = query("SELECT * FROM data_pasien WHERE nama LIKE '%$nama%' ORDER BY tanggal_pendaftaran DESC, id_pasien DESC ");
+}
 ?>
 
 <div class="row">
@@ -23,8 +28,24 @@ $pasien = query("SELECT * FROM data_pasien ORDER BY tanggal_pendaftaran DESC, id
                         </div>
                     <?php endif; ?>
                 </div>
+
+                <!-- <div class="row justify-content-end">
+                    <div class="col-12 col-lg-6 form-group">
+                        <form role="form" action="" method="POST">
+                            <div class="row">
+                                <div class="col-9">
+                                    <input type="text" class="form-control" placeholder="Nama Pasien" name="nama">
+                                </div>
+                                <div class="col-3">
+                                    <button type="submit" class="btn btn-primary" name="search"><i class="ti-search menu-icon"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> -->
+
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover data">
                         <thead>
                             <tr>
                                 <th>No. </th>
