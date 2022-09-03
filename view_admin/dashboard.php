@@ -3,14 +3,25 @@ include "../templates/header.php";
 include "../templates/topbar.php";
 include "../templates/aside.php";
 
-// $karyawan = query("SELECT * FROM karyawan");
-// $gaji = query("SELECT * FROM gaji");
+$today = date("Y-m-d");
+$toweek = date('Y-m-d', strtotime('+7 days', strtotime($today)));;
 
-// $total_karyawan = count($karyawan);
-// $total_gaji = count($gaji);
+$pasien = query("SELECT * FROM data_pasien WHERE tanggal_pendaftaran BETWEEN '$today' AND '$toweek'");
+$pasien_negatif = query("SELECT * FROM data_pasien INNER JOIN data_medis ON data_medis.pasien_id = data_pasien.id_pasien WHERE tes31 = 1");
+$pasien_positif = query("SELECT * FROM data_pasien INNER JOIN data_medis ON data_medis.pasien_id = data_pasien.id_pasien WHERE tes31 = 2");
+$users = query("SELECT * FROM users");
 
+$total_pasien = count($pasien);
+$total_pasien_negatif = count($pasien_negatif);
+$total_pasien_positif = count($pasien_positif);
+$total_users = count($users);
 
+$file = file_get_contents("https://cuaca.umkt.ac.id/api/cuaca/DigitalForecast-JawaBarat.xml");
+$cuaca = json_decode($file, true);
 
+$prov = $cuaca["row"]["data"]["forecast"]["area"][4]["@domain"];
+$kab = $cuaca["row"]["data"]["forecast"]["area"][4]["name"][1]["#text"];
+$suhu = $cuaca["row"]["data"]["forecast"]["area"][4]["parameter"][2]["timerange"][0]["value"][0]["#text"];
 
 // include('../weather-class.inc.php'); // This has all the code.
 
@@ -29,12 +40,12 @@ include "../templates/aside.php";
                     <div class="d-flex">
                         <div>
                             <h2 class="mb-0 font-weight-normal">
-                                <i class="icon-sun mr-2"></i>28<sup>C</sup>
+                                <?= $suhu; ?><sup>o</sup> C
                             </h2>
                         </div>
                         <div class="ml-2">
-                            <h4 class="location font-weight-normal">Cianjur</h4>
-                            <h6 class="font-weight-normal">Jawa Barat</h6>
+                            <h4 class="location font-weight-normal"><?= $kab; ?></h4>
+                            <h6 class="font-weight-normal"><?= $prov; ?></h6>
                         </div>
                     </div>
                 </div>
@@ -47,9 +58,9 @@ include "../templates/aside.php";
                 <div class="card card-tale">
                     <div class="card-body">
                         <p class="mb-4">Jumlah Pasien Minggu ini
-                            <br> <?= date("d") . " s/d " . date("d") + 7 . " " . date("Y"); ?>
+                            <br> <?= date("d") . " s/d " . date("d") + 7 . " " . date("M") . " " . date("Y"); ?>
                         </p>
-                        <p class="fs-30 mb-2">20</p>
+                        <p class="fs-30 mb-2"><?= $total_pasien; ?> Pasien</p>
                         <p>Terdaftar</p>
                     </div>
                 </div>
@@ -58,8 +69,8 @@ include "../templates/aside.php";
                 <div class="card card-dark-blue">
                     <div class="card-body">
                         <p class="mb-4">Pasien Negatif</p>
-                        <p class="fs-30 mb-2">15</p>
-                        <p>Pasien</p>
+                        <p class="fs-30 mb-2"><?= $total_pasien_negatif; ?> Pasien</p>
+                        <p>Negatif</p>
                     </div>
                 </div>
             </div>
@@ -69,8 +80,8 @@ include "../templates/aside.php";
                 <div class="card card-light-blue">
                     <div class="card-body">
                         <p class="mb-4">Pasien Positif</p>
-                        <p class="fs-30 mb-2">5</p>
-                        <p>Pasien</p>
+                        <p class="fs-30 mb-2"><?= $total_pasien_positif; ?> Pasien</p>
+                        <p>Positif</p>
                     </div>
                 </div>
             </div>
@@ -78,8 +89,8 @@ include "../templates/aside.php";
                 <div class="card card-light-danger">
                     <div class="card-body">
                         <p class="mb-4">Jumlah Pengguna</p>
-                        <p class="fs-30 mb-2">3</p>
-                        <p>Pengguna</p>
+                        <p class="fs-30 mb-2"><?= $total_users; ?> Pengguna</p>
+                        <p>Applikasi</p>
                     </div>
                 </div>
             </div>
