@@ -58,7 +58,7 @@ $suhu = $cuaca["row"]["data"]["forecast"]["area"][4]["parameter"][2]["timerange"
                 <div class="card card-tale">
                     <div class="card-body">
                         <p class="mb-4">Jumlah Pasien Minggu ini
-                            <br> <?= date("d") . " s/d " . date("d") + 7 . " " . date("M") . " " . date("Y"); ?>
+                            <br> <?= date("d");?> s/d <?= date("d") + 7 . " " . date("M") . " " . date("Y"); ?>
                         </p>
                         <p class="fs-30 mb-2"><?= $total_pasien; ?> Pasien</p>
                         <p>Terdaftar</p>

@@ -12,7 +12,7 @@ $total_pasien = count($pasien);
 
 
 <div class="row">
-    <div class="col-lg-5 grid-margin stretch-card">
+    <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -22,8 +22,8 @@ $total_pasien = count($pasien);
                             No. Antrian Pasien
                         </p>
                     </div>
-                    <div class="col">
-                        <a class="btn btn-primary float-right" href="pasien.php">Kembali</a>
+                    <div class="col justify-content-end">
+                        <a class="btn btn-primary float-right ml-auto" style="margin-left:auto; float: right;" href="pasien.php">Kembali</a>
                     </div>
 
                     <div class="col mx-auto">

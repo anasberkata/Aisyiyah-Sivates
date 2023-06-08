@@ -1,7 +1,7 @@
 <?php
 
 // KONEKSI DATABASE =====================================================
-$conn = mysqli_connect("localhost", "root", "", "skripsi_sivates");
+$conn = mysqli_connect("localhost", "root", "", "db_sivates");
 
 
 function query($query)
@@ -121,7 +121,7 @@ function pasien_tambah($data)
 
     $nama = $data["nama"];
     $agama = $data["agama"];
-    $suku_bangsa = $data["suku_bangsa"];
+    $suku_bangsa = "Indonesia";
     $tempat_lahir = $data["tempat_lahir"];
     $tanggal_lahir = $data["tanggal_lahir"];
     $umur = date("Y-m-d") - $tanggal_lahir;
